@@ -7,21 +7,23 @@
 //
 
 import UIKit
-import FirebaseDatabase
 
 extension DatabaseService {
     public func addPost(_ post: Post, andImage image: UIImage) {
-        let ref = postRef.childByAutoId()
+        let ref = postsRef.childByAutoId()
         guard let postData = post.toJSON() else {
-            delegate?.didFailAddPost?(errorMessage: "Error: Could not turn post to json.")
+            print("Error: Could not turn post to json.")
+            delegate?.didFailAddPost?(errorMessage: "Could not turn post to json.")
             return
         }
         ref.setValue(postData) { (error, _) in
             if let error = error {
+                print("Error: \(error.localizedDescription)")
                 self.delegate?.didFailAddPost?(errorMessage: error.localizedDescription)
             } else {
                 self.delegate?.didAddPost?()
                 //store image!!
+                print("Success: Added post \(ref.key)")
             }
         }
     }

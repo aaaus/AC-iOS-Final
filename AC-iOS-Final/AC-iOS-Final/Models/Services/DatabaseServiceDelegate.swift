@@ -11,5 +11,7 @@ import Foundation
 @objc protocol DatabaseServiceDelegate: class {
     @objc optional func didAddPost()
     @objc optional func didFailAddPost(errorMessage: String)
+    @objc optional func didStoreImage() //use this for adding post completion
+    @objc optional func didFailStoringImage(errorMessage: String)
     @objc optional func didFailGettingPosts(errorMessage: String)
 }

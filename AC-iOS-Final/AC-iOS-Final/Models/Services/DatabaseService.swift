@@ -12,10 +12,10 @@ import FirebaseDatabase
 class DatabaseService {
     init() {
         self.ref = Database.database().reference()
-        self.postRef = self.ref.child("posts")
+        self.postsRef = self.ref.child("posts")
     }
     
     private let ref: DatabaseReference!
-    public let postRef: DatabaseReference!
+    public let postsRef: DatabaseReference!
     public weak var delegate: DatabaseServiceDelegate?
 }
