@@ -12,9 +12,11 @@
 		5491521A203F335F009C7138 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54915218203F335F009C7138 /* Main.storyboard */; };
 		5491521F203F335F009C7138 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5491521D203F335F009C7138 /* LaunchScreen.storyboard */; };
 		54915227203F339A009C7138 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54915226203F339A009C7138 /* Assets.xcassets */; };
+		BEFBDCE1CB3E89D63420E2E0 /* Pods_AC_iOS_Final.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 422C0CFC09DCBC35B98A6593 /* Pods_AC_iOS_Final.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		422C0CFC09DCBC35B98A6593 /* Pods_AC_iOS_Final.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AC_iOS_Final.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		54915211203F335F009C7138 /* AC-iOS-Final.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AC-iOS-Final.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		54915214203F335F009C7138 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		54915216203F335F009C7138 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +24,8 @@
 		5491521E203F335F009C7138 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		54915220203F335F009C7138 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		54915226203F339A009C7138 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C55ADD3F4B35468311B6F8F3 /* Pods-AC-iOS-Final.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AC-iOS-Final.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AC-iOS-Final/Pods-AC-iOS-Final.debug.xcconfig"; sourceTree = "<group>"; };
+		EF8AA6EAAF0E16DD6A17F864 /* Pods-AC-iOS-Final.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AC-iOS-Final.release.xcconfig"; path = "Pods/Target Support Files/Pods-AC-iOS-Final/Pods-AC-iOS-Final.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEFBDCE1CB3E89D63420E2E0 /* Pods_AC_iOS_Final.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		31C254C50CBB6D5FD76B6143 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C55ADD3F4B35468311B6F8F3 /* Pods-AC-iOS-Final.debug.xcconfig */,
+				EF8AA6EAAF0E16DD6A17F864 /* Pods-AC-iOS-Final.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		54915208203F335F009C7138 = {
 			isa = PBXGroup;
 			children = (
 				54915213203F335F009C7138 /* AC-iOS-Final */,
 				54915212203F335F009C7138 /* Products */,
+				31C254C50CBB6D5FD76B6143 /* Pods */,
+				75C1FD161141C6F6EA081BBE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +80,14 @@
 			path = "AC-iOS-Final";
 			sourceTree = "<group>";
 		};
+		75C1FD161141C6F6EA081BBE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				422C0CFC09DCBC35B98A6593 /* Pods_AC_iOS_Final.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 54915223203F335F009C7138 /* Build configuration list for PBXNativeTarget "AC-iOS-Final" */;
 			buildPhases = (
+				74790DC90E3A650BFB8FF7D7 /* [CP] Check Pods Manifest.lock */,
 				5491520D203F335F009C7138 /* Sources */,
 				5491520E203F335F009C7138 /* Frameworks */,
 				5491520F203F335F009C7138 /* Resources */,
+				CB5E0288A1947B1D71830621 /* [CP] Embed Pods Frameworks */,
+				91C1B64609EE46552515B161 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -130,6 +157,70 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		74790DC90E3A650BFB8FF7D7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AC-iOS-Final-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		91C1B64609EE46552515B161 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AC-iOS-Final/Pods-AC-iOS-Final-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CB5E0288A1947B1D71830621 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-AC-iOS-Final/Pods-AC-iOS-Final-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AC-iOS-Final/Pods-AC-iOS-Final-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5491520D203F335F009C7138 /* Sources */ = {
@@ -272,6 +363,7 @@
 		};
 		54915224203F335F009C7138 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C55ADD3F4B35468311B6F8F3 /* Pods-AC-iOS-Final.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -287,6 +379,7 @@
 		};
 		54915225203F335F009C7138 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EF8AA6EAAF0E16DD6A17F864 /* Pods-AC-iOS-Final.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
