@@ -9,9 +9,9 @@
 import Foundation
 import FirebaseAuth
 
-protocol AuthUserServiceDelegate: class {
-    //to do
-}
+//protocol AuthUserServiceDelegate: class {
+//    //to do
+//}
 
 typealias DidSignOut = Bool
 
@@ -21,7 +21,7 @@ class AuthUserService {
     }
     static let manager = AuthUserService()
     private let auth: Auth!
-    public weak var delegate: AuthUserServiceDelegate?
+//    public weak var delegate: AuthUserServiceDelegate?
     
     public func createAccount(withEmail email: String, andPassword password: String, completion: @escaping (User?, Error?) -> Void) {
         auth.createUser(withEmail: email, password: password) { (user, error) in
