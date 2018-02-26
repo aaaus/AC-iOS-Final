@@ -16,6 +16,7 @@
 		8116726A204464C400267197 /* DatabaseService+Get.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81167269204464C400267197 /* DatabaseService+Get.swift */; };
 		8116726C204464D700267197 /* DatabaseServiceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8116726B204464D700267197 /* DatabaseServiceDelegate.swift */; };
 		8116726E2044652000267197 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8116726D2044652000267197 /* Post.swift */; };
+		811672702044719200267197 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8116726F2044719200267197 /* Alert.swift */; };
 		812ACC80204460210055129F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 812ACC7F204460210055129F /* GoogleService-Info.plist */; };
 		812ACC86204460D30055129F /* AuthUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812ACC85204460D30055129F /* AuthUserService.swift */; };
 		812ACC88204460DB0055129F /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812ACC87204460DB0055129F /* DatabaseService.swift */; };
@@ -36,6 +37,7 @@
 		81167269204464C400267197 /* DatabaseService+Get.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DatabaseService+Get.swift"; sourceTree = "<group>"; };
 		8116726B204464D700267197 /* DatabaseServiceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseServiceDelegate.swift; sourceTree = "<group>"; };
 		8116726D2044652000267197 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		8116726F2044719200267197 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		812ACC7F204460210055129F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		812ACC85204460D30055129F /* AuthUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUserService.swift; sourceTree = "<group>"; };
 		812ACC87204460DB0055129F /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				812ACC8B204460E70055129F /* Services */,
+				8116726F2044719200267197 /* Alert.swift */,
 				8116726D2044652000267197 /* Post.swift */,
 			);
 			path = Models;
@@ -302,6 +305,7 @@
 				54915217203F335F009C7138 /* ViewController.swift in Sources */,
 				8116726E2044652000267197 /* Post.swift in Sources */,
 				812ACC88204460DB0055129F /* DatabaseService.swift in Sources */,
+				811672702044719200267197 /* Alert.swift in Sources */,
 				54915215203F335F009C7138 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
