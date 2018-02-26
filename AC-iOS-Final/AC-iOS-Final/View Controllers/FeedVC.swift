@@ -9,10 +9,28 @@
 import UIKit
 
 class FeedVC: UIViewController {
-
+    
+    @IBOutlet weak var feedCollectionView: UICollectionView!
+    
+    private var cellSpacing = UIScreen.main.bounds.width * 0.05
+    private var posts: [Post] = [] {
+        didSet {
+            feedCollectionView.reloadData()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpCollectionView()
+        //to do set up data source
+    }
+    //set up refresh control!!
+    
+    private func setUpCollectionView() {
+        feedCollectionView.delegate = self
+        feedCollectionView.dataSource = self
 
+        
     }
     
     @IBAction func signOutButtonPressed(_ sender: UIBarButtonItem) {
@@ -27,5 +45,49 @@ class FeedVC: UIViewController {
                 self?.present(errorAlert, animated: true, completion: nil)
             }
         }
+    }
+}
+
+extension FeedVC: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+        let numberOfCells: CGFloat = 1
+        let numberOfSpaces: CGFloat = numberOfCells + 1
+        let width = (collectionView.frame.width - (cellSpacing * numberOfSpaces)) / numberOfCells
+        
+        //get height of cell using commentLabel's height
+        //idea taken from - https://stackoverflow.com/questions/45204283/collectionview-dynamic-height-with-swift-3-in-ios
+        let attributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 15)]
+        let size = CGSize(width: width, height: collectionView.frame.height)
+        let estimatedFrame = NSString(string: posts[indexPath.row].comment).boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: attributes, context: nil)
+        
+        return CGSize(width: width, height: (estimatedFrame.height + 16 + collectionView.frame.width))
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return cellSpacing
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return cellSpacing
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: cellSpacing, left: cellSpacing, bottom: cellSpacing, right: cellSpacing)
+    }
+}
+
+extension FeedVC: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return posts.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "feedCell", for: indexPath) as! FeedCell
+        let post = posts[indexPath.row]
+        
+        cell.configureCell(withPost: post)
+        
+        return cell
     }
 }

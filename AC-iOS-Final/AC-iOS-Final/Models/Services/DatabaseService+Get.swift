@@ -11,7 +11,7 @@ import FirebaseDatabase
 
 extension DatabaseService {
     public func getPosts(completion: @escaping ([Post]?) -> Void) {
-        postsRef.observe(.value) { (dataSnapshot) in
+        postsRef.observeSingleEvent(of: .value) { (dataSnapshot) in
             guard let postsSnapshot = dataSnapshot.children.allObjects as? [DataSnapshot] else {
                 print("Error: Could not get children datasnapshots.")
                 self.delegate?.didFailGettingPosts?(errorMessage: "Could not get children datasnapshots.")
