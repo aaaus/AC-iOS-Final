@@ -39,7 +39,9 @@ class FeedVC: UIViewController {
     
     private func checkInternet() -> Bool {
         if currentReachabilityStatus == .notReachable {
-            let noInternetAlert = Alert.createErrorAlert(withMessage: "No Internet Connectivity. Please check your network and restart the app.", andCompletion: nil)
+            let noInternetAlert = Alert.createErrorAlert(withMessage: "No Internet Connectivity. Please check your network and restart the app.", andCompletion: { [weak self] _ in
+                self?.refreshControl.endRefreshing()
+            })
             self.present(noInternetAlert, animated: true, completion: nil)
             return false
         }
@@ -48,6 +50,7 @@ class FeedVC: UIViewController {
     
     @objc private func getPosts() {
         if checkInternet() == false {
+            refreshControl.endRefreshing()
             return
         }
         
