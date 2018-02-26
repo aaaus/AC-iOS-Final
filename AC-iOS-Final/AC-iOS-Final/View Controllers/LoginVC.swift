@@ -20,6 +20,14 @@ class LoginVC: UIViewController {
         passwordTextField.delegate = self
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        //if current user exists
+        if let _ = AuthUserService.manager.getCurrentUser() {
+            self.performSegue(withIdentifier: "feedSegue", sender: self)
+        }
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
@@ -49,6 +57,7 @@ class LoginVC: UIViewController {
                             //segue to feed
                             print("sign up and login successful")
                             self?.performSegue(withIdentifier: "feedSegue", sender: self)
+                            self?.passwordTextField.text = nil
                         }
                     })
                     return
@@ -60,6 +69,7 @@ class LoginVC: UIViewController {
                 //segue to feed
                 print("login successful")
                 self?.performSegue(withIdentifier: "feedSegue", sender: self)
+                self?.passwordTextField.text = nil
             }
         }
     }

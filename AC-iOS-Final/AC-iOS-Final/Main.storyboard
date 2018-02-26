@@ -131,7 +131,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nOH-U1-aCL">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" canCancelContentTouches="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nOH-U1-aCL">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rue-wT-Tto">
@@ -151,8 +151,9 @@
                                             <constraint firstAttribute="trailing" secondItem="Ei2-hJ-nXp" secondAttribute="trailing" constant="20" id="j3y-td-hpx"/>
                                         </constraints>
                                     </view>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ale-Ze-bbR">
+                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera_icon" translatesAutoresizingMaskIntoConstraints="NO" id="Ale-Ze-bbR">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
+                                        <color key="backgroundColor" red="0.93999999999999995" green="0.93999999999999995" blue="0.93999999999999995" alpha="1" colorSpace="calibratedRGB"/>
                                     </imageView>
                                 </subviews>
                                 <constraints>
@@ -181,9 +182,21 @@
                         <viewLayoutGuide key="safeArea" id="n3O-W4-sgd"/>
                     </view>
                     <navigationItem key="navigationItem" title="Upload" id="UDJ-Os-dbS">
-                        <barButtonItem key="leftBarButtonItem" systemItem="trash" id="8Mt-a9-lZq"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Muq-zh-5nr"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="trash" id="8Mt-a9-lZq">
+                            <connections>
+                                <action selector="clearButtonPressed:" destination="wBr-TT-mb2" id="JgT-ON-HBr"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Muq-zh-5nr">
+                            <connections>
+                                <action selector="addButtonPressed:" destination="wBr-TT-mb2" id="fhG-Wd-Gcn"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="postImageView" destination="Ale-Ze-bbR" id="0Jz-sQ-0Fw"/>
+                        <outlet property="postTextView" destination="Ei2-hJ-nXp" id="FGl-K4-ITh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wb1-av-xSv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -195,6 +208,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="VpS-5z-jku" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="AL1-aZ-R8v">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -247,6 +261,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="camera_icon" width="60" height="55"/>
         <image name="chickenleg" width="24" height="25"/>
         <image name="meatly_logo" width="171" height="152"/>
         <image name="upload" width="25" height="25"/>
