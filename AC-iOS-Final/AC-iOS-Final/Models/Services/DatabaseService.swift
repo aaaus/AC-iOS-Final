@@ -16,6 +16,6 @@ class DatabaseService {
     }
     
     private let ref: DatabaseReference!
-    private let postRef: DatabaseReference!
+    public let postRef: DatabaseReference!
     public weak var delegate: DatabaseServiceDelegate?
 }
