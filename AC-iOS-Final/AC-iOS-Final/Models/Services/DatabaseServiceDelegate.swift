@@ -8,10 +8,12 @@
 
 import Foundation
 
+typealias ErrorMessage = String
+
 @objc protocol DatabaseServiceDelegate: class {
     @objc optional func didAddPost()
-    @objc optional func didFailAddPost(errorMessage: String)
-    @objc optional func didStoreImage() //use this for adding post completion
-    @objc optional func didFailStoringImage(errorMessage: String)
-    @objc optional func didFailGettingPosts(errorMessage: String)
+    @objc optional func didFailAddPost(errorMessage: ErrorMessage)
+//    @objc optional func didStoreImage() //use this for adding post completion
+    @objc optional func didFailStoringImage(errorMessage: ErrorMessage)
+    @objc optional func didFailGettingPosts(errorMessage: ErrorMessage)
 }
