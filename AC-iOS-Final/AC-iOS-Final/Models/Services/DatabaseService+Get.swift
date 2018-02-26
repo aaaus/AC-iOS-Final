@@ -15,6 +15,7 @@ extension DatabaseService {
             guard let postsSnapshot = dataSnapshot.children.allObjects as? [DataSnapshot] else {
                 print("Error: Could not get children datasnapshots.")
                 self.delegate?.didFailGettingPosts?(errorMessage: "Could not get children datasnapshots.")
+                completion(nil)
                 return
             }
             var posts: [Post] = []
@@ -22,11 +23,13 @@ extension DatabaseService {
                 guard let postDict = postSnapshot.value as? [String : Any] else {
                     print("Error: Could not initialize postDict from postSnapshot.")
                     self.delegate?.didFailGettingPosts?(errorMessage: "Could not initialize postDict from postSnapshot.")
+                    completion(nil)
                     return
                 }
                 guard let post = Post(from: postDict) else {
                     print("Error: Could not instantiate post from postDict.")
                     self.delegate?.didFailGettingPosts?(errorMessage: "Could not instantiate post from postDict.")
+                    completion(nil)
                     return
                 }
                 posts.append(post)
