@@ -30,6 +30,11 @@ class FeedVC: UIViewController {
     private func setUpCollectionView() {
         feedCollectionView.delegate = self
         feedCollectionView.dataSource = self
+        
+//        if let layout = feedCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+//            layout.estimatedItemSize = CGSize(width: 1000, height: 1000)
+//        }
+        
         refreshControl.addTarget(self, action: #selector(getPosts), for: .valueChanged)
         feedCollectionView.refreshControl = refreshControl
         feedCollectionView.alwaysBounceVertical = true
@@ -69,13 +74,13 @@ extension FeedVC: UICollectionViewDelegateFlowLayout {
         let numberOfCells: CGFloat = 1
         let numberOfSpaces: CGFloat = numberOfCells + 1
         let width = (collectionView.frame.width - (cellSpacing * numberOfSpaces)) / numberOfCells
-        
+
         //get height of cell using commentLabel's height
         //idea taken from - https://stackoverflow.com/questions/45204283/collectionview-dynamic-height-with-swift-3-in-ios
         let attributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 15)]
-        let size = CGSize(width: width, height: collectionView.frame.height)
+        let size = CGSize(width: width, height: 1000)
         let estimatedFrame = NSString(string: posts[indexPath.row].comment).boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: attributes, context: nil)
-        
+
         return CGSize(width: width, height: (estimatedFrame.height + 16 + collectionView.frame.width))
     }
 

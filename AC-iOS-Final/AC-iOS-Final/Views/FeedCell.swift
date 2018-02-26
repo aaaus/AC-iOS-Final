@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class FeedCell: UICollectionViewCell {
     
@@ -28,9 +29,24 @@ class FeedCell: UICollectionViewCell {
         self.contentView.layer.cornerRadius = 10
         self.contentView.layer.borderColor = UIColor.lightGray.cgColor
         self.contentView.layer.borderWidth = 1.0
+
     }
     
     public func configureCell(withPost post: Post) {
-        //to do
+        commentLabel.text = post.comment
+        
+        guard let imageURL = post.imageURL else {
+            postImageView.image = #imageLiteral(resourceName: "placeholder")
+            self.layoutIfNeeded()
+            return
+        }
+        postImageView.kf.indicatorType = .activity
+        postImageView.kf.setImage(with: imageURL as Resource, placeholder: #imageLiteral(resourceName: "placeholder"), options: nil, progressBlock: nil) { (image, error, _, _) in
+            if let _ = image {
+                print("got image!!")
+            } else if let error = error {
+                print("could not set image: \(error)")
+            }
+        }
     }
 }

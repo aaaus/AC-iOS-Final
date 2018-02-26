@@ -27,7 +27,10 @@ struct Post: Codable {
             print("couldn't get comment from postDict")
             return nil
         }
-        let imageURL = postDict["imageURL"] as? URL
+        guard let imageURLString = postDict["imageURL"] as? String, let imageURL = URL(string: imageURLString) else {
+            print("couldn't get image from postDict")
+            return nil
+        }
         
         self.userID = userID
         self.comment = comment
