@@ -7,3 +7,15 @@
 //
 
 import Foundation
+import FirebaseDatabase
+
+class DatabaseService {
+    init() {
+        self.ref = Database.database().reference()
+        self.postRef = self.ref.child("posts")
+    }
+    
+    private let ref: DatabaseReference!
+    private let postRef: DatabaseReference!
+    public weak var delegate: DatabaseServiceDelegate?
+}
