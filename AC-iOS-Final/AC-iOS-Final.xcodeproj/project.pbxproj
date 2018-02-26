@@ -12,6 +12,10 @@
 		5491521A203F335F009C7138 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54915218203F335F009C7138 /* Main.storyboard */; };
 		5491521F203F335F009C7138 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5491521D203F335F009C7138 /* LaunchScreen.storyboard */; };
 		54915227203F339A009C7138 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54915226203F339A009C7138 /* Assets.xcassets */; };
+		81167268204464BB00267197 /* DatabaseService+Add.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81167267204464BA00267197 /* DatabaseService+Add.swift */; };
+		8116726A204464C400267197 /* DatabaseService+Get.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81167269204464C400267197 /* DatabaseService+Get.swift */; };
+		8116726C204464D700267197 /* DatabaseServiceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8116726B204464D700267197 /* DatabaseServiceDelegate.swift */; };
+		8116726E2044652000267197 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8116726D2044652000267197 /* Post.swift */; };
 		812ACC80204460210055129F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 812ACC7F204460210055129F /* GoogleService-Info.plist */; };
 		812ACC86204460D30055129F /* AuthUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812ACC85204460D30055129F /* AuthUserService.swift */; };
 		812ACC88204460DB0055129F /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812ACC87204460DB0055129F /* DatabaseService.swift */; };
@@ -28,6 +32,10 @@
 		5491521E203F335F009C7138 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		54915220203F335F009C7138 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		54915226203F339A009C7138 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		81167267204464BA00267197 /* DatabaseService+Add.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DatabaseService+Add.swift"; sourceTree = "<group>"; };
+		81167269204464C400267197 /* DatabaseService+Get.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DatabaseService+Get.swift"; sourceTree = "<group>"; };
+		8116726B204464D700267197 /* DatabaseServiceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseServiceDelegate.swift; sourceTree = "<group>"; };
+		8116726D2044652000267197 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		812ACC7F204460210055129F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		812ACC85204460D30055129F /* AuthUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUserService.swift; sourceTree = "<group>"; };
 		812ACC87204460DB0055129F /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
@@ -119,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				812ACC8B204460E70055129F /* Services */,
+				8116726D2044652000267197 /* Post.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -135,6 +144,9 @@
 			children = (
 				812ACC85204460D30055129F /* AuthUserService.swift */,
 				812ACC87204460DB0055129F /* DatabaseService.swift */,
+				8116726B204464D700267197 /* DatabaseServiceDelegate.swift */,
+				81167267204464BA00267197 /* DatabaseService+Add.swift */,
+				81167269204464C400267197 /* DatabaseService+Get.swift */,
 				812ACC89204460E30055129F /* StorageService.swift */,
 			);
 			path = Services;
@@ -281,8 +293,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				812ACC8A204460E30055129F /* StorageService.swift in Sources */,
+				8116726C204464D700267197 /* DatabaseServiceDelegate.swift in Sources */,
 				812ACC86204460D30055129F /* AuthUserService.swift in Sources */,
+				81167268204464BB00267197 /* DatabaseService+Add.swift in Sources */,
+				8116726A204464C400267197 /* DatabaseService+Get.swift in Sources */,
 				54915217203F335F009C7138 /* ViewController.swift in Sources */,
+				8116726E2044652000267197 /* Post.swift in Sources */,
 				812ACC88204460DB0055129F /* DatabaseService.swift in Sources */,
 				54915215203F335F009C7138 /* AppDelegate.swift in Sources */,
 			);
