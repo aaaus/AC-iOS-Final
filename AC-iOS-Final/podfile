@@ -11,6 +11,7 @@ target 'AC-iOS-Final' do
 	pod 'Firebase/Core'
 	pod 'Firebase/Auth'
 	pod 'Firebase/Database'
+	pod 'Firebase/Storage'
 	pod 'Toucan'
 
 end
