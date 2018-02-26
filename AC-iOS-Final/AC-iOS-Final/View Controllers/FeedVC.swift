@@ -18,19 +18,34 @@ class FeedVC: UIViewController {
             feedCollectionView.reloadData()
         }
     }
+    private var databaseService: DatabaseService!
+    private let refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.databaseService = DatabaseService()
         setUpCollectionView()
-        //to do set up data source
     }
-    //set up refresh control!!
     
     private func setUpCollectionView() {
         feedCollectionView.delegate = self
         feedCollectionView.dataSource = self
-
-        
+        refreshControl.addTarget(self, action: #selector(getPosts), for: .valueChanged)
+        feedCollectionView.refreshControl = refreshControl
+        feedCollectionView.alwaysBounceVertical = true
+        getPosts()
+    }
+    
+    @objc private func getPosts() {
+        databaseService.getPosts { [weak self] (posts) in
+            self?.refreshControl.endRefreshing()
+            if let posts = posts {
+                self?.posts = posts.reversed() //get newest posts first
+            } else {
+                let errorAlert = Alert.createErrorAlert(withMessage: "Could not get posts!! Check your internet and try again.", andCompletion: nil)
+                self?.present(errorAlert, animated: true, completion: nil)
+            }
+        }
     }
     
     @IBAction func signOutButtonPressed(_ sender: UIBarButtonItem) {
