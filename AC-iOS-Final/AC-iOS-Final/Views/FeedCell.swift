@@ -10,4 +10,10 @@ import UIKit
 
 class FeedCell: UICollectionViewCell {
     
+    @IBOutlet weak var postImageView: UIImageView!
+    @IBOutlet weak var commentLabel: UILabel!
+    
+    public func configureCell(withPost post: Post) {
+        //to do
+    }
 }

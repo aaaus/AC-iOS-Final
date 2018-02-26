@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -85,19 +86,44 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pcZ-eT-y2b">
-                                    <size key="itemSize" width="371" height="385"/>
+                                    <size key="itemSize" width="371" height="537"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="fwm-X0-MEF" customClass="FeedCell" customModule="AC_iOS_Final" customModuleProvider="target">
-                                        <rect key="frame" x="2" y="0.0" width="371" height="385"/>
+                                        <rect key="frame" x="2" y="0.0" width="371" height="537"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="371" height="385"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="371" height="537"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="leu-s5-aOu">
+                                                    <rect key="frame" x="-0.5" y="0.0" width="371" height="371"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="752" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iry-CR-P7W">
+                                                    <rect key="frame" x="16" y="379" width="339" height="142"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </view>
+                                        <constraints>
+                                            <constraint firstItem="leu-s5-aOu" firstAttribute="centerX" secondItem="fwm-X0-MEF" secondAttribute="centerX" id="3qh-HA-oa1"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="Iry-CR-P7W" secondAttribute="bottom" constant="8" id="DOW-im-Y76"/>
+                                            <constraint firstItem="leu-s5-aOu" firstAttribute="top" secondItem="fwm-X0-MEF" secondAttribute="top" id="JAN-jR-dOt"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="Iry-CR-P7W" secondAttribute="trailing" constant="8" id="WPr-Om-bzd"/>
+                                            <constraint firstItem="leu-s5-aOu" firstAttribute="width" secondItem="fwm-X0-MEF" secondAttribute="width" id="cTM-tG-oIt"/>
+                                            <constraint firstItem="Iry-CR-P7W" firstAttribute="top" secondItem="leu-s5-aOu" secondAttribute="bottom" constant="8" id="ibL-6j-NNY"/>
+                                            <constraint firstItem="leu-s5-aOu" firstAttribute="height" secondItem="fwm-X0-MEF" secondAttribute="width" id="sNW-Z4-wof"/>
+                                            <constraint firstItem="Iry-CR-P7W" firstAttribute="leading" secondItem="fwm-X0-MEF" secondAttribute="leadingMargin" constant="8" id="sNg-Eb-UAS"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="commentLabel" destination="Iry-CR-P7W" id="mwr-cb-8pi"/>
+                                            <outlet property="postImageView" destination="leu-s5-aOu" id="qzi-mz-YMx"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
