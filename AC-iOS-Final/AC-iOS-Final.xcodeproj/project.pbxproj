@@ -12,6 +12,10 @@
 		5491521A203F335F009C7138 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54915218203F335F009C7138 /* Main.storyboard */; };
 		5491521F203F335F009C7138 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5491521D203F335F009C7138 /* LaunchScreen.storyboard */; };
 		54915227203F339A009C7138 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54915226203F339A009C7138 /* Assets.xcassets */; };
+		812ACC80204460210055129F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 812ACC7F204460210055129F /* GoogleService-Info.plist */; };
+		812ACC86204460D30055129F /* AuthUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812ACC85204460D30055129F /* AuthUserService.swift */; };
+		812ACC88204460DB0055129F /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812ACC87204460DB0055129F /* DatabaseService.swift */; };
+		812ACC8A204460E30055129F /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812ACC89204460E30055129F /* StorageService.swift */; };
 		BEFBDCE1CB3E89D63420E2E0 /* Pods_AC_iOS_Final.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 422C0CFC09DCBC35B98A6593 /* Pods_AC_iOS_Final.framework */; };
 /* End PBXBuildFile section */
 
@@ -24,6 +28,10 @@
 		5491521E203F335F009C7138 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		54915220203F335F009C7138 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		54915226203F339A009C7138 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		812ACC7F204460210055129F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		812ACC85204460D30055129F /* AuthUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUserService.swift; sourceTree = "<group>"; };
+		812ACC87204460DB0055129F /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
+		812ACC89204460E30055129F /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 		C55ADD3F4B35468311B6F8F3 /* Pods-AC-iOS-Final.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AC-iOS-Final.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AC-iOS-Final/Pods-AC-iOS-Final.debug.xcconfig"; sourceTree = "<group>"; };
 		EF8AA6EAAF0E16DD6A17F864 /* Pods-AC-iOS-Final.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AC-iOS-Final.release.xcconfig"; path = "Pods/Target Support Files/Pods-AC-iOS-Final/Pods-AC-iOS-Final.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -70,12 +78,12 @@
 		54915213203F335F009C7138 /* AC-iOS-Final */ = {
 			isa = PBXGroup;
 			children = (
-				54915214203F335F009C7138 /* AppDelegate.swift */,
-				54915216203F335F009C7138 /* ViewController.swift */,
-				54915218203F335F009C7138 /* Main.storyboard */,
-				5491521D203F335F009C7138 /* LaunchScreen.storyboard */,
+				812ACC83204460510055129F /* Models */,
+				812ACC84204460550055129F /* Views */,
+				812ACC822044603C0055129F /* View Controllers */,
+				812ACC812044602F0055129F /* Supporting Files */,
 				54915220203F335F009C7138 /* Info.plist */,
-				54915226203F339A009C7138 /* Assets.xcassets */,
+				812ACC7F204460210055129F /* GoogleService-Info.plist */,
 			);
 			path = "AC-iOS-Final";
 			sourceTree = "<group>";
@@ -86,6 +94,50 @@
 				422C0CFC09DCBC35B98A6593 /* Pods_AC_iOS_Final.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		812ACC812044602F0055129F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				54915214203F335F009C7138 /* AppDelegate.swift */,
+				54915218203F335F009C7138 /* Main.storyboard */,
+				5491521D203F335F009C7138 /* LaunchScreen.storyboard */,
+				54915226203F339A009C7138 /* Assets.xcassets */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		812ACC822044603C0055129F /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				54915216203F335F009C7138 /* ViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		812ACC83204460510055129F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				812ACC8B204460E70055129F /* Services */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		812ACC84204460550055129F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		812ACC8B204460E70055129F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				812ACC85204460D30055129F /* AuthUserService.swift */,
+				812ACC87204460DB0055129F /* DatabaseService.swift */,
+				812ACC89204460E30055129F /* StorageService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,6 +205,7 @@
 				5491521F203F335F009C7138 /* LaunchScreen.storyboard in Resources */,
 				54915227203F339A009C7138 /* Assets.xcassets in Resources */,
 				5491521A203F335F009C7138 /* Main.storyboard in Resources */,
+				812ACC80204460210055129F /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,7 +280,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				812ACC8A204460E30055129F /* StorageService.swift in Sources */,
+				812ACC86204460D30055129F /* AuthUserService.swift in Sources */,
 				54915217203F335F009C7138 /* ViewController.swift in Sources */,
+				812ACC88204460DB0055129F /* DatabaseService.swift in Sources */,
 				54915215203F335F009C7138 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
