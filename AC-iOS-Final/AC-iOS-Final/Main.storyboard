@@ -104,8 +104,8 @@
                                                     <color key="backgroundColor" red="0.93999999999999995" green="0.93999999999999995" blue="0.93999999999999995" alpha="1" colorSpace="calibratedRGB"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="752" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iry-CR-P7W">
-                                                    <rect key="frame" x="16" y="379" width="339" height="142"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="7.5" y="379" width="355" height="142"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -115,11 +115,11 @@
                                             <constraint firstItem="leu-s5-aOu" firstAttribute="centerX" secondItem="fwm-X0-MEF" secondAttribute="centerX" id="3qh-HA-oa1"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="Iry-CR-P7W" secondAttribute="bottom" constant="8" id="DOW-im-Y76"/>
                                             <constraint firstItem="leu-s5-aOu" firstAttribute="top" secondItem="fwm-X0-MEF" secondAttribute="top" id="JAN-jR-dOt"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="Iry-CR-P7W" secondAttribute="trailing" constant="8" id="WPr-Om-bzd"/>
+                                            <constraint firstItem="Iry-CR-P7W" firstAttribute="width" secondItem="leu-s5-aOu" secondAttribute="width" constant="-16" id="ObJ-hX-bnf"/>
+                                            <constraint firstItem="Iry-CR-P7W" firstAttribute="centerX" secondItem="leu-s5-aOu" secondAttribute="centerX" id="ZHM-Ly-Ywd"/>
                                             <constraint firstItem="leu-s5-aOu" firstAttribute="width" secondItem="fwm-X0-MEF" secondAttribute="width" id="cTM-tG-oIt"/>
                                             <constraint firstItem="Iry-CR-P7W" firstAttribute="top" secondItem="leu-s5-aOu" secondAttribute="bottom" constant="8" id="ibL-6j-NNY"/>
                                             <constraint firstItem="leu-s5-aOu" firstAttribute="height" secondItem="fwm-X0-MEF" secondAttribute="width" id="sNW-Z4-wof"/>
-                                            <constraint firstItem="Iry-CR-P7W" firstAttribute="leading" secondItem="fwm-X0-MEF" secondAttribute="leadingMargin" constant="8" id="sNg-Eb-UAS"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="commentLabel" destination="Iry-CR-P7W" id="mwr-cb-8pi"/>

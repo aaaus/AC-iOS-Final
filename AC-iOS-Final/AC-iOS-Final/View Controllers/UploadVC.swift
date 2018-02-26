@@ -40,6 +40,15 @@ class UploadVC: UIViewController {
         self.view.endEditing(true)
     }
     
+    private func checkInternet() -> Bool {
+        if currentReachabilityStatus == .notReachable {
+            let noInternetAlert = Alert.createErrorAlert(withMessage: "No Internet Connectivity. Please check your network and restart the app.", andCompletion: nil)
+            self.present(noInternetAlert, animated: true, completion: nil)
+            return false
+        }
+        return true
+    }
+    
     private func setUpViews() {
         postTextView.layer.masksToBounds = true
         postTextView.layer.cornerRadius = 10
@@ -122,6 +131,9 @@ class UploadVC: UIViewController {
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
         //when image set, change the image content mode
         self.view.endEditing(true)
+        if checkInternet() == false {
+            return
+        }
         print("add button pressed!!")
         guard let image = postImageView.image, image != #imageLiteral(resourceName: "camera_icon") else {
             let errorAlert = Alert.createErrorAlert(withMessage: "Please pick an image to upload!!!", andCompletion: nil)

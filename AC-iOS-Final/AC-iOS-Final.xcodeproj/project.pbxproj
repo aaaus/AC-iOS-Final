@@ -20,6 +20,7 @@
 		8116727420448BE500267197 /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8116727320448BE500267197 /* FeedVC.swift */; };
 		8116727620448BEE00267197 /* UploadVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8116727520448BEE00267197 /* UploadVC.swift */; };
 		811672782044919E00267197 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811672772044919E00267197 /* FeedCell.swift */; };
+		8116727C2044C82500267197 /* NetworkConnectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8116727B2044C82500267197 /* NetworkConnectivity.swift */; };
 		812ACC80204460210055129F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 812ACC7F204460210055129F /* GoogleService-Info.plist */; };
 		812ACC86204460D30055129F /* AuthUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812ACC85204460D30055129F /* AuthUserService.swift */; };
 		812ACC88204460DB0055129F /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812ACC87204460DB0055129F /* DatabaseService.swift */; };
@@ -44,6 +45,7 @@
 		8116727320448BE500267197 /* FeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
 		8116727520448BEE00267197 /* UploadVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadVC.swift; sourceTree = "<group>"; };
 		811672772044919E00267197 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
+		8116727B2044C82500267197 /* NetworkConnectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConnectivity.swift; sourceTree = "<group>"; };
 		812ACC7F204460210055129F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		812ACC85204460D30055129F /* AuthUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUserService.swift; sourceTree = "<group>"; };
 		812ACC87204460DB0055129F /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 			children = (
 				812ACC8B204460E70055129F /* Services */,
 				8116726F2044719200267197 /* Alert.swift */,
+				8116727B2044C82500267197 /* NetworkConnectivity.swift */,
 				8116726D2044652000267197 /* Post.swift */,
 			);
 			path = Models;
@@ -307,6 +310,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				812ACC8A204460E30055129F /* StorageService.swift in Sources */,
+				8116727C2044C82500267197 /* NetworkConnectivity.swift in Sources */,
 				811672782044919E00267197 /* FeedCell.swift in Sources */,
 				8116726C204464D700267197 /* DatabaseServiceDelegate.swift in Sources */,
 				8116727420448BE500267197 /* FeedVC.swift in Sources */,

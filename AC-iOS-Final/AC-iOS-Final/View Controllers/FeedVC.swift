@@ -31,17 +31,26 @@ class FeedVC: UIViewController {
         feedCollectionView.delegate = self
         feedCollectionView.dataSource = self
         
-//        if let layout = feedCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-//            layout.estimatedItemSize = CGSize(width: 1000, height: 1000)
-//        }
-        
         refreshControl.addTarget(self, action: #selector(getPosts), for: .valueChanged)
         feedCollectionView.refreshControl = refreshControl
         feedCollectionView.alwaysBounceVertical = true
         getPosts()
     }
     
+    private func checkInternet() -> Bool {
+        if currentReachabilityStatus == .notReachable {
+            let noInternetAlert = Alert.createErrorAlert(withMessage: "No Internet Connectivity. Please check your network and restart the app.", andCompletion: nil)
+            self.present(noInternetAlert, animated: true, completion: nil)
+            return false
+        }
+        return true
+    }
+    
     @objc private func getPosts() {
+        if checkInternet() == false {
+            return
+        }
+        
         databaseService.getPosts { [weak self] (posts) in
             self?.refreshControl.endRefreshing()
             if let posts = posts {
