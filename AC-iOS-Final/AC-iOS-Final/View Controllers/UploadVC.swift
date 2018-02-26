@@ -30,6 +30,7 @@ class UploadVC: UIViewController {
         databaseService = DatabaseService()
         databaseService.delegate = self
         imagePickerVC = UIImagePickerController()
+        imagePickerVC.delegate = self
         setUpViews()
         setUpNotification()
         setUpGestures()
@@ -90,6 +91,9 @@ class UploadVC: UIViewController {
         let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(imagePressed))
         postImageView.addGestureRecognizer(tapGesture)
         postImageView.addGestureRecognizer(longPressGesture)
+        
+        let scrollViewTapGesture = UITapGestureRecognizer(target: self, action: #selector(scrollViewTapped))
+        scrollView.addGestureRecognizer(scrollViewTapGesture)
     }
     
     @objc func imagePressed() {
@@ -109,6 +113,10 @@ class UploadVC: UIViewController {
         }
         Alert.addAction(withTitle: "Cancel", style: .cancel, andCompletion: nil, toAlertController: actionSheet)
         self.present(actionSheet, animated: true, completion: nil)
+    }
+    
+    @objc private func scrollViewTapped() {
+        self.view.endEditing(true)
     }
     
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
@@ -133,6 +141,7 @@ class UploadVC: UIViewController {
     }
     
     @IBAction func clearButtonPressed(_ sender: UIBarButtonItem) {
+        postImageView.contentMode = .center
         postImageView.image = #imageLiteral(resourceName: "camera_icon")
         postTextView.text = nil
         self.view.endEditing(true)
@@ -180,21 +189,32 @@ extension UploadVC: DatabaseServiceDelegate {
     func didAddPost() {
         SVProgressHUD.dismiss()
         let successAlert = Alert.createSuccessAlert(withMessage: "You added the post!!!!!!", andCompletion: { [weak self] _ in
+            self?.postImageView.contentMode = .center
             self?.postImageView.image = #imageLiteral(resourceName: "camera_icon")
             self?.postTextView.text = nil
         })
         self.present(successAlert, animated: true, completion: nil)
     }
-    
     func didFailAddPost(errorMessage: ErrorMessage) {
         SVProgressHUD.dismiss()
         let errorAlert = Alert.createErrorAlert(withMessage: "Could not add post:\n\(errorMessage)", andCompletion: nil)
         self.present(errorAlert, animated: true, completion: nil)
     }
-    
     func didFailStoringImage(errorMessage: ErrorMessage) {
         SVProgressHUD.dismiss()
         let errorAlert = Alert.createErrorAlert(withMessage: "Could not store image:\n\(errorMessage)", andCompletion: nil)
         self.present(errorAlert, animated: true, completion: nil)
+    }
+}
+
+extension UploadVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        guard let image = info[UIImagePickerControllerOriginalImage] as? UIImage else {
+            print("could not get selected image")
+            return
+        }
+        postImageView.contentMode = .scaleAspectFit
+        postImageView.image = image
+        picker.dismiss(animated: true, completion: nil)
     }
 }
