@@ -196,6 +196,7 @@
                     <connections>
                         <outlet property="postImageView" destination="Ale-Ze-bbR" id="0Jz-sQ-0Fw"/>
                         <outlet property="postTextView" destination="Ei2-hJ-nXp" id="FGl-K4-ITh"/>
+                        <outlet property="scrollView" destination="nOH-U1-aCL" id="C7B-v3-IBW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wb1-av-xSv" userLabel="First Responder" sceneMemberID="firstResponder"/>
