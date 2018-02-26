@@ -9,10 +9,10 @@
 import UIKit
 
 class Alert {
-    public static func createAlert(withTitle title: String, andMessage message: String) -> UIAlertController {
+    public static func createAlert(withTitle title: String?, andMessage message: String?) -> UIAlertController {
         return UIAlertController(title: title, message: message, preferredStyle: .alert)
     }
-    public static func createActionSheet(withTitle title: String, andMessage message: String) -> UIAlertController {
+    public static func createActionSheet(withTitle title: String?, andMessage message: String?) -> UIAlertController {
         return UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
     }
     public static func addAction(withTitle title: String, style: UIAlertActionStyle, andCompletion completion: ((UIAlertAction) -> Void)?, toAlertController alertController: UIAlertController) {

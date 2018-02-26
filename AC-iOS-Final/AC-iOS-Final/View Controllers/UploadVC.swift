@@ -9,6 +9,7 @@
 import UIKit
 import SVProgressHUD
 import NotificationCenter
+import AVFoundation
 
 class UploadVC: UIViewController {
 
@@ -22,11 +23,13 @@ class UploadVC: UIViewController {
         return AuthUserService.manager.getCurrentUser()!.uid
     }
     private var databaseService: DatabaseService!
+    private var imagePickerVC: UIImagePickerController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         databaseService = DatabaseService()
         databaseService.delegate = self
+        imagePickerVC = UIImagePickerController()
         setUpViews()
         setUpNotification()
         setUpGestures()
@@ -90,9 +93,22 @@ class UploadVC: UIViewController {
     }
     
     @objc func imagePressed() {
-        //to do - set up photo image picker
         print("image pressed!!!")
         self.view.endEditing(true)
+        
+        let actionSheet = Alert.createActionSheet(withTitle: "Add Image", andMessage: nil)
+        Alert.addAction(withTitle: "Photo Library", style: .default, andCompletion: { [weak self] (_) in
+            self?.imagePickerVC.sourceType = .photoLibrary
+            self?.checkAVAuthorization()
+        }, toAlertController: actionSheet)
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            Alert.addAction(withTitle: "Camera", style: .default, andCompletion: { [weak self] (_) in
+                self?.imagePickerVC.sourceType = .camera
+                self?.checkAVAuthorization()
+            }, toAlertController: actionSheet)
+        }
+        Alert.addAction(withTitle: "Cancel", style: .cancel, andCompletion: nil, toAlertController: actionSheet)
+        self.present(actionSheet, animated: true, completion: nil)
     }
     
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
@@ -121,6 +137,42 @@ class UploadVC: UIViewController {
         postTextView.text = nil
         self.view.endEditing(true)
         print("everything cleared!!")
+    }
+    
+    private func checkAVAuthorization() {
+        let status = AVCaptureDevice.authorizationStatus(for: .video)
+        switch status {
+        case .notDetermined:
+            print("notDetermined")
+            AVCaptureDevice.requestAccess(for: .video, completionHandler: { (granted) in
+                if granted {
+                    self.showImagePicker()
+                } else {
+                    self.deniedPhotoAlert()
+                }
+            })
+        case .denied:
+            print("denied")
+            deniedPhotoAlert()
+        case .authorized:
+            print("authorized")
+            showImagePicker()
+        case .restricted:
+            print("restricted")
+        }
+    }
+    
+    private func showImagePicker() {
+        present(imagePickerVC, animated: true, completion: nil)
+    }
+    
+    private func deniedPhotoAlert() {
+        let settingsAlert = Alert.createAlert(withTitle: "Please Allow Photo Access", andMessage: "This will allow you to share photos from your library and your camera.")
+        Alert.addAction(withTitle: "Cancel", style: .cancel, andCompletion: nil, toAlertController: settingsAlert)
+        Alert.addAction(withTitle: "Settings", style: .default, andCompletion: { (_) in
+            UIApplication.shared.open(URL(string: UIApplicationOpenSettingsURLString)!, options: [:], completionHandler: nil)
+        }, toAlertController: settingsAlert)
+        self.present(settingsAlert, animated: true, completion: nil)
     }
 }
 
